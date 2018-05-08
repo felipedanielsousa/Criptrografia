@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model Criptografia.Models.CriptografiaCifra
+
+
+<div class="jumbotron">
+    <h1>Criptografia</h1>
+
+    @using (Html.BeginForm("OpcaoCriptografia", "Home"))
+    {
+        <form role="form" method="post">
+            <div class="form-group">
+                <label for="texto">Entre com os dados para criptografar</label>
+                <input type="text" id="texto" class="form-control" required='required' name="Texto" placeholder="Entre com os dados para encriptar ou descriptar">
+                <br>
+                <label for="entradaChave">Entre com a chave</label>
+                <input type="text" id="chave" class="form-control" required='required' name="Chave" placeholder="Informe a chave para encriptar ou descriptar.">
+                <h3 style="color:rgb(4, 0, 255)">@Model.TextoFinal</h3>
+            </div>
+
+            <div class="form-check">
+                @Html.CheckBox("CripDescrip", true)
+                
+                <label class="form-check-label" for="crip-descrip">Encriptar</label>
+            </div>
+            <button type="submit" class="btn btn-danger">Executar</button>
+        </form>
+    }
+    </div>
